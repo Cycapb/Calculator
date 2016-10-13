@@ -23,5 +23,15 @@ namespace Tests
             
             Assert.IsNull(result);
         }
+
+        [TestMethod]
+        public void ConvertReturnsNullIfInputIsInvalid()
+        {
+            _validator.Setup(m => m.IsValid(It.IsNotNull<string>())).Returns(false);
+
+            var result = _converter.Convert("2s");
+
+            Assert.IsNull(result);
+        }
     }
 }
