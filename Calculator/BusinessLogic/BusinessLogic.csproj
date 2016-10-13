@@ -41,8 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="Exceptions\InvalidInputStringException.cs" />
     <Compile Include="IConverter.cs" />
     <Compile Include="IExecuter.cs" />
+    <Compile Include="IOperationProvider.cs" />
+    <Compile Include="IValidator.cs" />
+    <Compile Include="PostfixConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

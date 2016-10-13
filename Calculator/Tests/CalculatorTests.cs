@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using BusinessLogic.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -22,13 +23,18 @@ namespace Tests
         [TestMethod]
         public void CanCalculate()
         {
-            _converter.Setup(m => m.Convert(It.IsAny<string>())).Returns("");
+            _converter.Setup(m => m.Convert(It.IsNotNull<string>())).Returns<string>(s => s);
 
-            _calculator.Calculate(It.IsAny<string>());
+            _calculator.Calculate("22");
 
             _executer.Verify(m => m.Execute(It.IsAny<string>()),Times.Exactly(1));
         }
 
-
+        [TestMethod]
+        [ExpectedException(typeof(InvalidInputStringException))]
+        public void CannotCalculateIfConvertReturnsNull()
+        {
+            _calculator.Calculate(It.IsAny<string>());
+        }
     }
 }
