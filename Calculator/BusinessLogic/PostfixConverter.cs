@@ -12,6 +12,10 @@
 
         public string Convert(string infixString)
         {
+            if (string.IsNullOrEmpty(infixString))
+            {
+                return null;
+            }
             throw new System.NotImplementedException();
         }
     }
