@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using BusinessLogic.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -27,6 +28,13 @@ namespace Tests
             _calculator.Calculate("22");
 
             _executer.Verify(m => m.Execute(It.IsAny<string>()),Times.Exactly(1));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidInputStringException))]
+        public void CannotCalculateIfConvertReturnsNull()
+        {
+            _calculator.Calculate(It.IsAny<string>());
         }
     }
 }

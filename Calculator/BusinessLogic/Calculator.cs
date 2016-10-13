@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BusinessLogic.Exceptions;
 
 namespace BusinessLogic
 {
@@ -21,7 +21,7 @@ namespace BusinessLogic
             {
                 return _executer.Execute(postfixString);
             }
-            throw new NotImplementedException();
+            throw new InvalidInputStringException();
         }
     }
 }
