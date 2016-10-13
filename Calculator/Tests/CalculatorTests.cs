@@ -22,9 +22,9 @@ namespace Tests
         [TestMethod]
         public void CanCalculate()
         {
-            _converter.Setup(m => m.Convert(It.IsAny<string>())).Returns(It.IsNotNull<string>());
+            _converter.Setup(m => m.Convert(It.IsNotNull<string>())).Returns<string>(s => s);
 
-            _calculator.Calculate("");
+            _calculator.Calculate("22");
 
             _executer.Verify(m => m.Execute(It.IsAny<string>()),Times.Exactly(1));
         }
