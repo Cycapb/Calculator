@@ -16,6 +16,11 @@
             {
                 return null;
             }
+
+            if (!_validator.IsValid(infixString))
+            {
+                return null;
+            }
             throw new System.NotImplementedException();
         }
     }
