@@ -1,4 +1,6 @@
-﻿namespace BusinessLogic
+﻿using System;
+
+namespace BusinessLogic
 {
     public class Calculator
     {
@@ -13,12 +15,13 @@
 
         public decimal Calculate(string infixString)
         {
-            var postfixString = _converter.Convert(infixString)
+            var postfixString = _converter.Convert(infixString);
 
             if (postfixString != null)
             {
                 return _executer.Execute(postfixString);
             }
+            throw new NotImplementedException();
         }
     }
 }
