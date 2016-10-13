@@ -11,9 +11,14 @@
             _executer = executer;
         }
 
-        public int Calculate(string infixString)
+        public decimal Calculate(string infixString)
         {
-            throw new System.NotImplementedException();
+            var postfixString = _converter.Convert(infixString)
+
+            if (postfixString != null)
+            {
+                return _executer.Execute(postfixString);
+            }
         }
     }
 }
