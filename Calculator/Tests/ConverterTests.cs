@@ -33,5 +33,16 @@ namespace Tests
 
             Assert.IsNull(result);
         }
+
+        [TestMethod]
+        public void ConvertReturns22PlusIfInput2Plus2()
+        {
+            var infixString = "2+2";
+            _validator.Setup(m => m.IsValid(It.IsNotNull<string>())).Returns(true);
+
+            var result = _converter.Convert(infixString);
+
+            Assert.AreEqual("22+", result);    
+        }
     }
 }
