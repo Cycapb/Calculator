@@ -82,5 +82,17 @@ namespace Tests
 
             Assert.AreEqual("1 2 3 - + ", result);
         }
+
+        [TestMethod]
+        public void ConvertReturns44PlusIfInput4SpacePlusSpace4()
+        {
+            var infixString = "4 + 4";
+            _validator.Setup(m => m.IsValid(It.IsNotNull<string>())).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
+
+            var result = _converter.Convert(infixString);
+
+            Assert.AreEqual("4 4 + ", result);
+        }
     }
 }
