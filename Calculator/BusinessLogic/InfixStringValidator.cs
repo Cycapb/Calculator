@@ -5,14 +5,25 @@ namespace BusinessLogic
 {
     public class InfixStringValidator:IValidator
     {
+        private readonly IOperationProvider _operationProvider;
+
+        public InfixStringValidator(IOperationProvider operationProvider)
+        {
+            _operationProvider = operationProvider;
+        }
+
         public bool IsValid(string inputString)
         {
-
-            if (inputString.Any(char.IsLetter))
+            foreach (var c in inputString)
             {
+                if (char.IsDigit(c) || _operationProvider.IsOperation(c) || " ".IndexOf(c) != -1)
+                {
+                    continue;
+                }
                 return false;
             }
-            throw new NotImplementedException();            
+
+            return true;
         }
     }
 }
