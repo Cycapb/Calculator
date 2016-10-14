@@ -43,5 +43,15 @@ namespace Tests
 
             Assert.IsInstanceOfType(result, typeof(AddOperation));
         }
+
+        [TestMethod]
+        public void GetOperationReturnsNullIfInputIsSymbolDollar()
+        {
+            var operation = '$';
+
+            var result = _operationProvider.GetOperation(operation);
+
+            Assert.IsNull(result);
+        }
     }
 }
