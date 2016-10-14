@@ -1,7 +1,5 @@
-﻿using System;
-using BusinessLogic;
+﻿using BusinessLogic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace Tests
 {
