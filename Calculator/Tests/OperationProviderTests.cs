@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using BusinessLogic;
+﻿using BusinessLogic;
+using BusinessLogic.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
@@ -32,6 +32,16 @@ namespace Tests
             var result = _operationProvider.IsOperation(operation);
 
             Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
+        public void GetOperationReturnsAddOperationIfInputIsSymbolPlus()
+        {
+            var operation = '+';
+
+            var result = _operationProvider.GetOperation(operation);
+
+            Assert.IsInstanceOfType(result, typeof(AddOperation));
         }
     }
 }
