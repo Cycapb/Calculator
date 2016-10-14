@@ -46,6 +46,7 @@
     <Compile Include="IExecuter.cs" />
     <Compile Include="InfixStringValidator.cs" />
     <Compile Include="IOperation.cs" />
+    <Compile Include="IOperationExecuter.cs" />
     <Compile Include="IOperationProvider.cs" />
     <Compile Include="IValidator.cs" />
     <Compile Include="SimpleOperationProvider.cs" />
