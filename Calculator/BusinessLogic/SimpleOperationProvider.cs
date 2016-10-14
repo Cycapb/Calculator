@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BusinessLogic.Operations;
 
 namespace BusinessLogic
@@ -27,7 +28,14 @@ namespace BusinessLogic
 
         public IOperation GetOperation(char c)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                return _operations[c];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
