@@ -47,6 +47,12 @@
     <Compile Include="IOperation.cs" />
     <Compile Include="IOperationProvider.cs" />
     <Compile Include="IValidator.cs" />
+    <Compile Include="Operations\AddOperation.cs" />
+    <Compile Include="Operations\DivisionOperation.cs" />
+    <Compile Include="Operations\LeftBracketOperation.cs" />
+    <Compile Include="Operations\MultiplicationOperation.cs" />
+    <Compile Include="Operations\RightBracketOperation.cs" />
+    <Compile Include="Operations\SubtractionOperation.cs" />
     <Compile Include="PostfixConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

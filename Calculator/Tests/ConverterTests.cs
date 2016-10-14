@@ -1,4 +1,5 @@
 ﻿using BusinessLogic;
+using BusinessLogic.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -47,5 +48,27 @@ namespace Tests
 
             Assert.AreEqual("2 2 + ", result);    
         }
+
+        [TestMethod]
+        public void Convert2Plus2Div1Plus1()
+        {
+            var infixString = "(2+2)/(1+1)";
+            _validator.Setup(m => m.IsValid(infixString)).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('/')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('(')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation(')')).Returns(true);
+            _operationProvider.Setup(m => m.GetOperation('+')).Returns(new AddOperation());
+
+            _operationProvider.Setup(m => m.GetOperation('(')).Returns(new LeftBracketOperation());
+            _operationProvider.Setup(m => m.GetOperation(')')).Returns(new RightBracketOperation());
+            _operationProvider.Setup(m => m.GetOperation('/')).Returns(new DivisionOperation());
+            
+            var result = _converter.Convert(infixString);
+
+            Assert.AreEqual("2 2 + 1 1 + / ", result);
+        }
+
+
     }
 }

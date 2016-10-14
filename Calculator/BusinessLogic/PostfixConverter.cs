@@ -64,8 +64,11 @@ namespace BusinessLogic
                             s = operStack.Pop();
                         }
                     }
-                    else 
+                    else
                     {
+                        //var plus = _operationProvider.GetOperation(infixString[i]).GetPriority;
+                        //var skobka = _operationProvider.GetOperation(operStack.Peek()).GetPriority;
+
                         if (operStack.Count > 0) 
                             if (_operationProvider.GetOperation(infixString[i]).GetPriority <= _operationProvider.GetOperation(operStack.Peek()).GetPriority) 
                                 output += operStack.Pop() + " ";
