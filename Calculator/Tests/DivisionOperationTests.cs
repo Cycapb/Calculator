@@ -17,7 +17,6 @@ namespace Tests
         [TestMethod]
         public void CanExecute4Div2()
         {
-
             var result = _divOperation.Execute(4, 2);
 
             Assert.AreEqual(2, result);
