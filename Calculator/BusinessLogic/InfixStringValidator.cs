@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-
-namespace BusinessLogic
+﻿namespace BusinessLogic
 {
     public class InfixStringValidator:IValidator
     {
