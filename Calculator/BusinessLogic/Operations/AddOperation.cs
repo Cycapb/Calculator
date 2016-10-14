@@ -5,7 +5,7 @@
         public int GetPriority => 2;
         public decimal Execute(decimal x, decimal y)
         {
-            throw new System.NotImplementedException();
+            return x + y;
         }
     }
 }
