@@ -64,6 +64,7 @@
     <Compile Include="CalculatorTests.cs" />
     <Compile Include="ConverterTests.cs" />
     <Compile Include="OperationProviderTests.cs" />
+    <Compile Include="AddOperationTests.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
