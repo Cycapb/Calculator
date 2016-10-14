@@ -68,6 +68,7 @@
     <Compile Include="DivisionOperationTests.cs" />
     <Compile Include="LeftBracketOperationTests.cs" />
     <Compile Include="RightBracketOperationTests.cs" />
+    <Compile Include="MultiplicationOperationTests.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
