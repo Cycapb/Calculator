@@ -32,5 +32,13 @@ namespace Tests
 
             Assert.AreEqual(0, result);
         }
+
+        [TestMethod]
+        public void GetPriorityReturns4()
+        {
+            var result = _multiplicationOperation.GetPriority;
+
+            Assert.AreEqual(4, result);
+        }
     }
 }
