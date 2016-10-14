@@ -28,5 +28,13 @@ namespace Tests
         {
             _divOperation.Execute(2, 0);
         }
+
+        [TestMethod]
+        public void GetPriorityReturns4()
+        {
+            var result = _divOperation.GetPriority;
+
+            Assert.AreEqual(4, result);
+        }
     }
 }
