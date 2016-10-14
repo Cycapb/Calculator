@@ -20,7 +20,7 @@ namespace Tests
             var y = 2;
             var result = _multiplicationOperation.Execute(x, y);
 
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(4, result);
         }
 
         [TestMethod]
