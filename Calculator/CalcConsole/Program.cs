@@ -8,9 +8,9 @@ namespace CalcConsole
     {
         static void Main()
         {
-            Console.WriteLine("Input expression:\n");
+            Console.Write("Input expression:");
             var exp = Console.ReadLine();
-            Console.WriteLine(Calculate(exp));
+            Console.WriteLine($"Result: {Calculate(exp)}");
             Console.ReadLine();
         }
 
