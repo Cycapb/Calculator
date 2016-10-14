@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using System.Runtime.Remoting;
+using BusinessLogic;
 using BusinessLogic.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -59,7 +60,6 @@ namespace Tests
             _operationProvider.Setup(m => m.IsOperation('(')).Returns(true);
             _operationProvider.Setup(m => m.IsOperation(')')).Returns(true);
             _operationProvider.Setup(m => m.GetOperation('+')).Returns(new AddOperation());
-
             _operationProvider.Setup(m => m.GetOperation('(')).Returns(new LeftBracketOperation());
             _operationProvider.Setup(m => m.GetOperation(')')).Returns(new RightBracketOperation());
             _operationProvider.Setup(m => m.GetOperation('/')).Returns(new DivisionOperation());
@@ -69,6 +69,19 @@ namespace Tests
             Assert.AreEqual("2 2 + 1 1 + / ", result);
         }
 
+        [TestMethod]
+        public void Convert1Plus2Minus3()
+        {
+            var infixString = "1+2-3";
+            _validator.Setup(m => m.IsValid(infixString)).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('-')).Returns(true);
+            _operationProvider.Setup(m => m.GetOperation('+')).Returns(new AddOperation());
+            _operationProvider.Setup(m => m.GetOperation('-')).Returns(new SubtractionOperation());
 
+            var result = _converter.Convert(infixString);
+
+            Assert.AreEqual("1 2 3 - + ", result);
+        }
     }
 }
