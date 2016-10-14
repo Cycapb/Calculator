@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting;
-using BusinessLogic;
+﻿using BusinessLogic;
 using BusinessLogic.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
