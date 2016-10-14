@@ -28,5 +28,21 @@ namespace Tests
 
             Assert.AreEqual(4, result);
         }
+
+        [TestMethod]
+        public void ExecuteBracket2Plus2DivideBracket1Plus1()
+        {
+            _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('-')).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('/')).Returns(true);
+            _operationProvider.Setup(m => m.GetOperation('+')).Returns(new AddOperation());
+            _operationProvider.Setup(m => m.GetOperation('-')).Returns(new SubtractionOperation());
+            _operationProvider.Setup(m => m.GetOperation('/')).Returns(new DivisionOperation());
+            var postfixString = "2 2 + 1 1 + / ";
+
+            var result = _executor.Execute(postfixString);
+
+            Assert.AreEqual(2, result);
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace BusinessLogic
 
         public decimal Execute(string postfixString)
         {
-            decimal result = 0;
             Stack<decimal> temp = new Stack<decimal>();
 
             for (int i = 0; i < postfixString.Length; i++)
@@ -37,8 +36,8 @@ namespace BusinessLogic
                 {
                     decimal a = temp.Pop();
                     decimal b = temp.Pop();
-
-                    result = ((IOperationExecuter) _operationProvider.GetOperation(postfixString[i])).Execute(a, b);
+                    decimal result = 0;
+                    result = ((IOperationExecuter) _operationProvider.GetOperation(postfixString[i])).Execute(b, a);
                     temp.Push(result);
                 }
             }
