@@ -21,5 +21,12 @@ namespace Tests
 
             Assert.AreEqual(2, result);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(DivideByZeroException))]
+        public void CannotExecuteThrowsDivideByZeroException()
+        {
+            _divOperation.Execute(2, 0);
+        }
     }
 }
