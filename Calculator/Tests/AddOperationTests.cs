@@ -24,5 +24,13 @@ namespace Tests
 
             Assert.AreEqual(4, result);
         }
+
+        [TestMethod]
+        public void CanGetPriority()
+        {
+            var result = _addOperation.GetPriority;
+
+            Assert.AreEqual(2, result);
+        }
     }
 }
