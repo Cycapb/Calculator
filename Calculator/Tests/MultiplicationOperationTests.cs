@@ -22,5 +22,15 @@ namespace Tests
 
             Assert.AreEqual(2, result);
         }
+
+        [TestMethod]
+        public void Execute2Multiplicate0Returns0()
+        {
+            var x = 2;
+            var y = 0;
+            var result = _multiplicationOperation.Execute(x, y);
+
+            Assert.AreEqual(0, result);
+        }
     }
 }
