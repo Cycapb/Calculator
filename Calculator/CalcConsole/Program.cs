@@ -10,7 +10,14 @@ namespace CalcConsole
         {
             Console.Write("Input expression:");
             var exp = Console.ReadLine();
-            Console.WriteLine($"Result: {Calculate(exp)}");
+            try
+            {
+                Console.WriteLine($"Result: {Calculate(exp)}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             Console.ReadLine();
         }
 
