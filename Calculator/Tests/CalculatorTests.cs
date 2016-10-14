@@ -34,6 +34,8 @@ namespace Tests
         [ExpectedException(typeof(InvalidInputStringException))]
         public void CannotCalculateIfConvertReturnsNull()
         {
+            _converter.Setup(m => m.Convert(It.IsAny<string>())).Returns<string>(null);
+
             _calculator.Calculate(It.IsAny<string>());
         }
     }
