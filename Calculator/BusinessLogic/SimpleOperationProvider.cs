@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BusinessLogic.Operations;
 
 namespace BusinessLogic
 {
@@ -8,12 +9,20 @@ namespace BusinessLogic
 
         public SimpleOperationProvider()
         {
-                
+            _operations = new Dictionary<char, IOperation>
+            {
+                ['+'] = new AddOperation(),
+                ['-'] = new SubtractionOperation(),
+                ['*'] = new MultiplicationOperation(),
+                ['/'] = new DivisionOperation(),
+                ['('] = new LeftBracketOperation(),
+                [')'] = new RightBracketOperation()
+            };
         }
 
         public bool IsOperation(char c)
         {
-            throw new System.NotImplementedException();
+            return _operations.ContainsKey(c);
         }
 
         public IOperation GetOperation(char c)

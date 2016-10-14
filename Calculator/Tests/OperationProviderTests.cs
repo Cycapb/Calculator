@@ -1,4 +1,5 @@
-﻿using BusinessLogic;
+﻿using System.Configuration;
+using BusinessLogic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests
@@ -21,6 +22,16 @@ namespace Tests
             var result = _operationProvider.IsOperation(operation);
 
             Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void IsOperationInputAnySymbolReturnsFalse()
+        {
+            var operation = '$';
+
+            var result = _operationProvider.IsOperation(operation);
+
+            Assert.AreEqual(false, result);
         }
     }
 }
