@@ -48,6 +48,7 @@
     <Compile Include="IOperation.cs" />
     <Compile Include="IOperationProvider.cs" />
     <Compile Include="IValidator.cs" />
+    <Compile Include="SimpleOperationProvider.cs" />
     <Compile Include="Operations\AddOperation.cs" />
     <Compile Include="Operations\DivisionOperation.cs" />
     <Compile Include="Operations\LeftBracketOperation.cs" />
