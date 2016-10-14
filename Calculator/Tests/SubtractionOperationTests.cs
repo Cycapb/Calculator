@@ -23,5 +23,13 @@ namespace Tests
 
             Assert.AreEqual(2, result);
         }
+
+        [TestMethod]
+        public void GetPriorityReturns3()
+        {
+            var result = _subtractionOperation.GetPriority;
+
+            Assert.AreEqual(3, result);
+        }
     }
 }
