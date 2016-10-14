@@ -9,11 +9,13 @@ namespace Tests
     {
         private readonly PostfixConverter _converter;
         private readonly Mock<IValidator> _validator;
+        private readonly Mock<IOperationProvider> _operationProvider;
 
         public ConverterTests()
         {
             _validator = new Mock<IValidator>();
-            _converter = new PostfixConverter(_validator.Object);
+            _operationProvider = new Mock<IOperationProvider>();
+            _converter = new PostfixConverter(_validator.Object, _operationProvider.Object);
         }
 
         [TestMethod]
@@ -39,10 +41,11 @@ namespace Tests
         {
             var infixString = "2+2";
             _validator.Setup(m => m.IsValid(It.IsNotNull<string>())).Returns(true);
+            _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
 
             var result = _converter.Convert(infixString);
 
-            Assert.AreEqual("22+", result);    
+            Assert.AreEqual("2 2 + ", result);    
         }
     }
 }
