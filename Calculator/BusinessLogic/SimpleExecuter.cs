@@ -2,7 +2,7 @@
 
 namespace BusinessLogic
 {
-    public class SimpleExecuter:IExecuter
+    public class SimpleExecuter : IExecuter
     {
         private readonly IOperationProvider _operationProvider;
 
@@ -17,22 +17,21 @@ namespace BusinessLogic
 
             for (int i = 0; i < postfixString.Length; i++)
             {
-                //Если цифра
                 if (char.IsDigit(postfixString[i]))
                 {
                     string a = string.Empty;
 
                     while (!char.IsWhiteSpace(postfixString[i]) && !_operationProvider.IsOperation(postfixString[i]))
                     {
-                        a += postfixString[i]; 
+                        a += postfixString[i];
                         i++;
                         if (i == postfixString.Length) break;
                     }
-                    temp.Push(decimal.Parse(a)); 
+                    temp.Push(decimal.Parse(a));
                     i--;
                 }
-                //Если оператор
-                else if (_operationProvider.IsOperation(postfixString[i])) 
+
+                else if (_operationProvider.IsOperation(postfixString[i]))
                 {
                     decimal a = temp.Pop();
                     decimal b = temp.Pop();

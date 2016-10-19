@@ -33,7 +33,6 @@ namespace BusinessLogic
             {
                 if (char.IsWhiteSpace(infixString[i])) continue; 
 
-                //Если символ - цифра, то считываем все число
                 if (char.IsDigit(infixString[i]))
                 {
                     while (!char.IsWhiteSpace(infixString[i]) && !_operationProvider.IsOperation(infixString[i]) && !infixString[i].Equals('(') && !infixString[i].Equals(')'))
@@ -48,7 +47,6 @@ namespace BusinessLogic
                     i--;
                 }
 
-                //Если символ - оператор
                 if (infixString[i] == '(') operStack.Push(infixString[i]);
                 else if (infixString[i] == ')')
                 {
