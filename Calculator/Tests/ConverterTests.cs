@@ -56,11 +56,7 @@ namespace Tests
             _validator.Setup(m => m.IsValid(infixString)).Returns(true);
             _operationProvider.Setup(m => m.IsOperation('+')).Returns(true);
             _operationProvider.Setup(m => m.IsOperation('/')).Returns(true);
-            _operationProvider.Setup(m => m.IsOperation('(')).Returns(true);
-            _operationProvider.Setup(m => m.IsOperation(')')).Returns(true);
             _operationProvider.Setup(m => m.GetOperation('+')).Returns(new AddOperation());
-            _operationProvider.Setup(m => m.GetOperation('(')).Returns(new LeftBracketOperation());
-            _operationProvider.Setup(m => m.GetOperation(')')).Returns(new RightBracketOperation());
             _operationProvider.Setup(m => m.GetOperation('/')).Returns(new DivisionOperation());
             
             var result = _converter.Convert(infixString);
