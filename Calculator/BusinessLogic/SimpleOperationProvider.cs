@@ -15,9 +15,7 @@ namespace BusinessLogic
                 ['+'] = new AddOperation(),
                 ['-'] = new SubtractionOperation(),
                 ['*'] = new MultiplicationOperation(),
-                ['/'] = new DivisionOperation(),
-                ['('] = new LeftBracketOperation(),
-                [')'] = new RightBracketOperation()
+                ['/'] = new DivisionOperation()
             };
         }
 
