@@ -36,7 +36,7 @@ namespace BusinessLogic
                 //Если символ - цифра, то считываем все число
                 if (char.IsDigit(infixString[i]))
                 {
-                    while (!char.IsWhiteSpace(infixString[i]) && !_operationProvider.IsOperation(infixString[i]))
+                    while (!char.IsWhiteSpace(infixString[i]) && !_operationProvider.IsOperation(infixString[i]) && !infixString[i].Equals('(') && !infixString[i].Equals(')'))
                     {
                         output += infixString[i];
                         i++;
@@ -49,30 +49,37 @@ namespace BusinessLogic
                 }
 
                 //Если символ - оператор
-                if (_operationProvider.IsOperation(infixString[i]))
+                if (infixString[i] == '(') operStack.Push(infixString[i]);
+                else if (infixString[i] == ')')
                 {
-                    if (infixString[i] == '(')
-                        operStack.Push(infixString[i]);
-                    else if (infixString[i] == ')')
-                    {
-                        char s = operStack.Pop();
+                    char s = operStack.Pop();
 
-                        while (s != '(')
-                        {
-                            output += s.ToString() + ' ';
-                            s = operStack.Pop();
-                        }
+                    while (s != '(')
+                    {
+                        output += s.ToString() + ' ';
+                        s = operStack.Pop();
+                    }
+                }
+
+                if (!_operationProvider.IsOperation(infixString[i])) continue;
+                if (operStack.Count > 0)
+                {
+                    var c = operStack.Peek();
+                    if (_operationProvider.IsOperation(c))
+                    {
+                        if (_operationProvider.GetOperation(infixString[i]).GetPriority
+                            <= _operationProvider.GetOperation(operStack.Peek()).GetPriority)
+                            output += operStack.Pop() + " ";
+                        operStack.Push(char.Parse(infixString[i].ToString()));
                     }
                     else
                     {
-
-                        if (operStack.Count > 0) 
-                            if (_operationProvider.GetOperation(infixString[i]).GetPriority <= _operationProvider.GetOperation(operStack.Peek()).GetPriority) 
-                                output += operStack.Pop() + " ";
-
                         operStack.Push(char.Parse(infixString[i].ToString()));
-
                     }
+                }
+                else
+                {
+                    operStack.Push(char.Parse(infixString[i].ToString()));
                 }
             }
             
