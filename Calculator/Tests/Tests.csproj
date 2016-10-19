@@ -66,8 +66,6 @@
     <Compile Include="OperationProviderTests.cs" />
     <Compile Include="AddOperationTests.cs" />
     <Compile Include="DivisionOperationTests.cs" />
-    <Compile Include="LeftBracketOperationTests.cs" />
-    <Compile Include="RightBracketOperationTests.cs" />
     <Compile Include="MultiplicationOperationTests.cs" />
     <Compile Include="SubtractionOperationTests.cs" />
     <Compile Include="ExecuterTests.cs" />
