@@ -13,7 +13,7 @@
         {
             foreach (var c in inputString)
             {
-                if (char.IsDigit(c) || _operationProvider.IsOperation(c) || " ".IndexOf(c) != -1)
+                if (char.IsDigit(c) || _operationProvider.IsOperation(c) || char.IsWhiteSpace(c) || c.Equals('(') || c.Equals(')'))
                 {
                     continue;
                 }
