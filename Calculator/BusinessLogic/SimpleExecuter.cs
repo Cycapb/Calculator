@@ -37,7 +37,7 @@ namespace BusinessLogic
                     decimal a = temp.Pop();
                     decimal b = temp.Pop();
                     decimal result = 0;
-                    result = ((IOperationExecuter) _operationProvider.GetOperation(postfixString[i])).Execute(b, a);
+                    result = _operationProvider.GetOperation(postfixString[i]).Execute(b, a);
                     temp.Push(result);
                 }
             }
