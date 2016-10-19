@@ -22,7 +22,7 @@ namespace BusinessLogic
                 {
                     string a = string.Empty;
 
-                    while (" ".IndexOf(postfixString[i]) == -1 && !_operationProvider.IsOperation(postfixString[i]))
+                    while (!char.IsWhiteSpace(postfixString[i]) && !_operationProvider.IsOperation(postfixString[i]))
                     {
                         a += postfixString[i]; 
                         i++;

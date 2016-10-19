@@ -31,13 +31,12 @@ namespace BusinessLogic
 
             for (int i = 0; i < infixString.Length; i++) 
             {
-                if (" ".IndexOf(infixString[i]) != -1)
-                    continue; 
+                if (char.IsWhiteSpace(infixString[i])) continue; 
 
                 //Если символ - цифра, то считываем все число
                 if (char.IsDigit(infixString[i]))
                 {
-                    while (!(" ".IndexOf(infixString[i]) != -1) && !_operationProvider.IsOperation(infixString[i]))
+                    while (!char.IsWhiteSpace(infixString[i]) && !_operationProvider.IsOperation(infixString[i]))
                     {
                         output += infixString[i];
                         i++;
